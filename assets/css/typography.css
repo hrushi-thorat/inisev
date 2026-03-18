@@ -1,0 +1,7 @@
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: var(--text-base);
+  font-weight: var(--font-regular);
+  color: var(--color-text);
+  line-height: 1.5;
+}
