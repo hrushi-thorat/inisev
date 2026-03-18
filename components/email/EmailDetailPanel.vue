@@ -21,7 +21,11 @@ function handleClickOutside(event: MouseEvent) {
             <img src="/icons/mail-04.png" alt="" width="16" height="16" />
             Mark as read (r)
           </button>
-          <button class="email-detail__action" @click="store.archiveEmails([store.openEmail!.id])">
+          <button v-if="store.openEmail?.isArchived" class="email-detail__action" @click="store.unarchiveEmails([store.openEmail!.id])">
+            <img src="/icons/trash-01.png" alt="" width="16" height="16" />
+            Unarchive (a)
+          </button>
+          <button v-else class="email-detail__action" @click="store.archiveEmails([store.openEmail!.id])">
             <img src="/icons/trash-01.png" alt="" width="16" height="16" />
             Archive (a)
           </button>
