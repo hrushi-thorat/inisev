@@ -10,13 +10,13 @@ defineProps<{
 <template>
   <div class="email-list">
     <EmailListHeader :emails="emails" :is-archive="isArchive" />
-    <div class="email-list__items">
+    <TransitionGroup name="list" tag="div" class="email-list__items">
       <EmailListItem
         v-for="email in emails"
         :key="email.id"
         :email="email"
       />
-    </div>
+    </TransitionGroup>
   </div>
 </template>
 
@@ -30,5 +30,19 @@ defineProps<{
 .email-list__items {
   flex: 1;
   overflow-y: auto;
+  position: relative;
+}
+
+.list-leave-active {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.list-leave-to {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.list-move {
+  transition: transform 0.3s ease;
 }
 </style>

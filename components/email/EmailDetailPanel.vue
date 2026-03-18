@@ -50,7 +50,6 @@ function handleClickOutside(event: MouseEvent) {
   position: absolute;
   top: 0;
   right: 0;
-  width: 400px;
   border-left: 1px solid var(--color-border);
   background-color: var(--color-bg);
   display: flex;
@@ -119,5 +118,27 @@ function handleClickOutside(event: MouseEvent) {
   font-size: 14px;
   font-weight: 500;
   color: #4b5563;
+}
+</style>
+
+<style>
+.slide-panel-enter-active,
+.slide-panel-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.slide-panel-enter-from,
+.slide-panel-leave-to {
+  opacity: 0;
+}
+
+.slide-panel-enter-active .email-detail,
+.slide-panel-leave-active .email-detail {
+  transition: transform 0.3s ease;
+}
+
+.slide-panel-enter-from .email-detail,
+.slide-panel-leave-to .email-detail {
+  transform: translateX(100%);
 }
 </style>

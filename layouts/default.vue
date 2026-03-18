@@ -30,7 +30,9 @@ const pageTitle = computed(() => {
       </div>
       <slot />
     </main>
-    <EmailDetailPanel v-if="store.openEmail" />
+    <Transition name="slide-panel">
+      <EmailDetailPanel v-if="store.openEmail" />
+    </Transition>
   </div>
 </template>
 
