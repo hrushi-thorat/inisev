@@ -17,15 +17,15 @@ function handleClickOutside(event: MouseEvent) {
       <div class="email-detail__header">
         <a class="email-detail__close" @click="store.closeEmail()">Close (Esc)</a>
         <div class="email-detail__actions">
-          <button v-if="!store.openEmail?.isRead" class="email-detail__action" @click="store.markAsRead([store.openEmail!.id])">
+          <button v-if="!store.openEmail?.isRead" class="email-detail__action" @click="store.markAsRead([store.openEmail!.id]); store.closeEmail()">
             <img src="/icons/mail-04.png" alt="" width="16" height="16" />
             Mark as read (r)
           </button>
-          <button v-if="store.openEmail?.isArchived" class="email-detail__action" @click="store.unarchiveEmails([store.openEmail!.id])">
+          <button v-if="store.openEmail?.isArchived" class="email-detail__action" @click="store.unarchiveEmails([store.openEmail!.id]); store.closeEmail()">
             <img src="/icons/trash-01.png" alt="" width="16" height="16" />
             Unarchive (a)
           </button>
-          <button v-else class="email-detail__action" @click="store.archiveEmails([store.openEmail!.id])">
+          <button v-else class="email-detail__action" @click="store.archiveEmails([store.openEmail!.id]); store.closeEmail()">
             <img src="/icons/trash-01.png" alt="" width="16" height="16" />
             Archive (a)
           </button>
